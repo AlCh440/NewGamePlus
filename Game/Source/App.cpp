@@ -5,6 +5,9 @@
 #include "Textures.h"
 #include "Audio.h"
 #include "Scene.h"
+#include "../Collider.h"
+#include "Map.h"
+#include "../Collisions.h"
 
 #include "Defs.h"
 #include "Log.h"
@@ -23,6 +26,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	tex = new Textures();
 	audio = new Audio();
 	scene = new Scene();
+	coll = new Collisions();
+	map = new Map();
 
 	// Ordered for awake / Start / Update
 	// Reverse order of CleanUp
@@ -31,6 +36,8 @@ App::App(int argc, char* args[]) : argc(argc), args(args)
 	AddModule(tex);
 	AddModule(audio);
 	AddModule(scene);
+	AddModule(coll);
+	AddModule(map);
 
 	// Render last to swap buffer
 	AddModule(render);

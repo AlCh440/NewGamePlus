@@ -30,8 +30,8 @@ bool Scene::Awake()
 // Called before the first frame
 bool Scene::Start()
 {
-	img = app->tex->Load("Assets/Textures/test.png");
-	app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
+	//img = app->tex->Load("Assets/Textures/test.png");
+	//app->audio->PlayMusic("Assets/Audio/Music/music_spy.ogg");
 	return true;
 }
 
@@ -44,19 +44,18 @@ bool Scene::PreUpdate()
 // Called each loop iteration
 bool Scene::Update(float dt)
 {
-	if(app->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
+	if(app->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 		app->render->camera.y -= 1;
 
-	if(app->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
+	if(app->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
 		app->render->camera.y += 1;
 
-	if(app->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)
+	if(app->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 		app->render->camera.x -= 1;
 
-	if(app->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
+	if(app->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 		app->render->camera.x += 1;
 
-	app->render->DrawTexture(img, 380, 100);
 
 	return true;
 }
